@@ -4469,7 +4469,7 @@ MouseOutHandler, MouseWheelHandler {
 	    }
 
 	    if (j != n-1) {
-		double mult = 1.0/a[j][j];
+		double mult = 1.0/a[j][j]; // andy-cytomic: this inverted scaling term should be stored for future use!
 		for (i = j+1; i != n; i++)
 		    a[i][j] *= mult;
 	    }
@@ -4513,7 +4513,7 @@ MouseOutHandler, MouseWheelHandler {
 	    int j;
 	    for (j = i+1; j != n; j++)
 		tot -= a[i][j]*b[j];
-	    b[i] = tot/a[i][i];
+	    b[i] = tot/a[i][i]; // andy-cytomic: can re-use the inverted scaling term here!
 	}
     }
 
